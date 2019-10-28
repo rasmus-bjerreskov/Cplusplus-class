@@ -2,14 +2,16 @@
 
 String::String(const char* s)
 {
-	c_string = new char[11];
-	strcpy_s(c_string, 11, s);
+	int n = strlen(s) + 1;
+	c_string = new char[n];
+	strcpy_s(c_string, n, s);
 }
 
-String::String(const String& str)
+String::String(const String &str)
 {
-	c_string = new char[11];
-	strcpy_s(c_string, 11, str.c_string);
+	int n = strlen(str.c_string) + 1;
+	c_string = new char[n];
+	strcpy_s(c_string, n, str.c_string);
 }
 
 void String::list()
@@ -17,8 +19,10 @@ void String::list()
 	cout << c_string << endl;
 }
 
+/*
 String::~String()
 {
 	delete c_string;
 	cout << "Destructor called" << endl;
 }
+*/

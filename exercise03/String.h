@@ -13,6 +13,6 @@ public:
 	String(const char* s);
 	String(const String& str);
 	void list();
-	~String();
+	//~String();
 };
 
