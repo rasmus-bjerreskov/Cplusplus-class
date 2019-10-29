@@ -12,7 +12,9 @@ private:
 public:
 	String(const char* s);
 	String(const String& str);
+	const String& operator=(const String &str);
+	String operator+(const String& str) const;
 	void list();
-	//~String();
+	~String();
 };
 
