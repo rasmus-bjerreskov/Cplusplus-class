@@ -10,14 +10,14 @@ private:
 	char* c_string;
 
 public:
-	String();
-	String(const char* s);
+	String(const char* s = "");
 	String(const String& str);
 
-	const String& operator=(const String &str);
+	const String& operator=(const String& str);
 	String operator+(const String& str) const;
 	friend ostream& operator<<(ostream& out, String str);
+	String& operator++();
+
 	void list();
 	~String();
 };
-
