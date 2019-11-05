@@ -8,7 +8,7 @@ String::String(const char* s)
 }
 
 
-String::String(const String &str)
+String::String(const String& str)
 {
 	size_t n = strlen(str.c_string) + 1;
 	c_string = new char[n];
@@ -28,46 +28,36 @@ const String& String::operator=(const String& str)
 
 String String::operator+(const String& str) const
 {
-	String aux;
 	size_t n = strlen(c_string) + strlen(str.c_string) + 1;
+	char* s = new char[n];
 
-	delete aux.c_string;
-	aux.c_string = new char[n];
+	strcpy_s(s, strlen(c_string) + 1, c_string);
+	strcat_s(s, n, str.c_string);
 
-	strcpy_s(aux.c_string, strlen(c_string) + 1, c_string);
-	strcat_s(aux.c_string, n, str.c_string);
+	String aux(s);
+	delete[]s;
 
 	return aux;
-}
-
-ostream& operator<<(ostream& out, String &str)
-{
-	out << str.c_string;
-	return out;
 }
 
 String& String::operator++()
 {
-	size_t n = strlen(c_string) + 2;
-	char* s = new char[n];
-	strcpy_s(s, n, c_string);
-	delete c_string;
-	c_string = s;
-	strcat_s(c_string, n, "X");
-
+	String aux("X");
+	*this = *this + aux;
 	return *this;
 }
 
-String String::operator++(int)
+String& String::operator++(int)
 {
-	String aux(*this);
-	this->operator++();
-	return aux;
+	String aux = *this;
+	aux++;
+	return *this;
 }
 
 char &String::operator[](int i)
 {
-	size_t n = strlen(c_string);
+	int n;
+	for (n = 0; c_string[n] != '\0'; ++n);
 	if (i >= n) {
 		return c_string[n - 1];
 		cout << "Out of bounds";
@@ -84,4 +74,10 @@ void String::list()
 String::~String()
 {
 	delete c_string;
+}
+
+ostream& operator<<(ostream& out, String str)
+{
+	out << str.c_string;
+	return out;
 }
