@@ -1,15 +1,12 @@
 #include "String.h"
+#include <iostream>
+using namespace std;
 
-int main() {
-	String s("abcdefg");
-	for (int i = 0; i < 7; i++)
-		cout << s[i] << " ";
-	s[4] = 'X';
-	for (int i = 0; i < 7; i++)
-		cout << s[i] << " ";
-
-	s++;
-	++s;
+void main() {
+	String s;
+	const char* name = "abc";
+	s = "Matti"; //Conversion c-string -> String
+	cout << name << endl;
+	strcpy_s(s, strlen(name) + 1,  name); //Conversion String -> c-string
 	cout << s << endl;
-	return 0;
 }

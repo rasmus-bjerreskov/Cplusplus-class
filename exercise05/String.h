@@ -13,12 +13,14 @@ public:
 	String(const char* s = "");
 	String(const String& str);
 
+	operator const char* () const;
+
 	const String& operator=(const String& str);
 	String operator+(const String& str) const;
-	friend ostream& operator<<(ostream& out, String &str);
+	friend ostream& operator<<(ostream& out, String& str);
 	String& operator++();
 	String operator++(int);
-	char &operator[](int i);
+	char& operator[](int i);
 
 	void list();
 	~String();
