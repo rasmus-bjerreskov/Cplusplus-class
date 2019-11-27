@@ -15,22 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LimitedCounter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="counter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LimitedCounter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="counter.obj" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LimitedCounter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="exercise07.cpp">
+    <ClCompile Include="exercise07b.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="counter.obj" />
   </ItemGroup>
 </Project>
