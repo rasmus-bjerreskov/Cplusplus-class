@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="weak_ptr.cpp">
+    <ClCompile Include="Exercise10A.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise10D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

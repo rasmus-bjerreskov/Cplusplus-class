@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="weak_ptr.cpp">
+    <ClCompile Include="ex_memleak.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
