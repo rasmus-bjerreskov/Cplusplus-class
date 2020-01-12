@@ -76,10 +76,10 @@ int main() {
 		{
 			string filename;
 			fstream outfile;
-			cout << "Name of the file to save from. \nIf a file with the same name already exists, it will be overwritten: ";
+			cout << "Name of the file to save to. \nIf a file with the same name already exists, it will be overwritten: ";
 			cin >> filename;
 
-			outfile.open(filename, ios::trunc);
+			outfile.open(filename, fstream::out | fstream::trunc);
 			if (outfile << lib)
 				cout << "Library saved." << endl;
 			else
@@ -94,7 +94,12 @@ int main() {
 			fstream infile;
 			cout << "Name of the file to read from. \nAny books already in the library will not be added: ";
 			cin >> filename;
-			infile.open(filename, ios::in);
+			infile.open(filename, fstream::in);
+			infile >> lib;
+			if (infile.rdstate() & fstream::failbit)
+				cout << "Succesfully added the file to the library" << endl;
+			else
+				cout << "Failed to read file" << endl;
 			break;
 		}
 
