@@ -13,17 +13,17 @@ bool Library::addBook()
 	stringstream sstream(input);
 
 	//check validity of ID, abort if not a number
-	if (!(sstream >> id)) {
+	if (!(sstream >> id))
 		return false;
-	}
+
+
+	//each book should have a unique ID
+	if (isDublicate(id))
+		return false;
 
 	//extract title from rest of string stream
-	while (!sstream.eof()) {
-		sstream >> tmp;
-		name += tmp;
-		if (!sstream.eof())
-			name += " ";
-	}
+	ws(sstream);
+	getline(sstream, name);
 
 	Book tmpB(id, name);
 	list.push_back(tmpB);
@@ -64,7 +64,7 @@ bool Library::isDublicate(int test)
 	return false;
 }
 
-bool Library::borrowBook(int book, int usr)
+bool Library::borrowBook(int& book, int usr)
 {
 	for (auto &it : list) {
 		if (it.getId() == book && it.getAvailable()) {
@@ -75,7 +75,7 @@ bool Library::borrowBook(int book, int usr)
 	return false;
 }
 
-bool Library::returnBook(int bk)
+bool Library::returnBook(int& bk)
 {
 	for (auto &it : list) {
 		if (it.getId() == bk && !it.getAvailable()) {

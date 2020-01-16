@@ -15,7 +15,7 @@ int login();
 void preload(Library& lib);
 int main() {
 	Library lib;
-	int selec = 0;
+	int selec = 99;
 	int usr = 0;
 	cout << "== Library ==" << endl;
 	cout << "Welcome. Please enter your nummerical user ID: ";
@@ -47,6 +47,7 @@ int main() {
 		case 2:
 		{
 			lib.print();
+			cout << endl;
 			break;
 		}
 		case 3:
@@ -65,8 +66,9 @@ int main() {
 		{
 			int bkid = 0;
 			cout << "Enter ID of the book you wish to return: ";
+			cin >> bkid;
 			if (lib.returnBook(bkid))
-				cout << "Book returned!";
+				cout << "Book returned!" << endl;
 			else
 				cout << "Failed to return book. Book either does not exist in the library or is not registered as borrowed." << endl;
 			break;
@@ -121,15 +123,22 @@ int main() {
 			if (lib.addBook())
 				cout << "Book succesfully added!" << endl;
 			else
-				cout << "Failed to add book. Invalid input or the book already exists in the library";
+				cout << "Failed to add book. Invalid input or the book already exists in the library" << endl;
 			break;
 		}
 
 		case 9:
+		{
 			preload(lib);
-			break; 
+			break;
+		}
+
+		case 0:
+			cout << "Program terminating." << endl;
+			break;
 
 		default:
+			cout << "Invalid input." << endl;
 			break;
 		}
 	} while (selec != 0);

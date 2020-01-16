@@ -11,8 +11,8 @@ public:
 	void addBook(Book bk);
 	void print();
 	bool isDublicate(int id);
-	bool borrowBook(int book, int usr);
-	bool returnBook(int book);
+	bool borrowBook(int& book, int usr);
+	bool returnBook(int& book);
 	void clear();
 	friend ostream& operator<<(ostream& out, const Library& lib);
 	friend istream& operator>>(istream& in, Library& lib);
